@@ -1,0 +1,18 @@
+# Compiled class file #
+#######################
+*.class
+
+# Compiled class folder #
+out
+
+# IDEA project files #
+######################
+*.iml
+
+# Development environment #ś
+###########################
+.idea
+
+# OS generated files #
+######################
+.DS_Store
