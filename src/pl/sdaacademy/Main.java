@@ -60,6 +60,7 @@ public class Main {
                     break;
                 case 6:
                     System.out.println("Option 6");
+                    booksManager.getList();
                     break;
                 case 7:
                     System.out.println("Option 7");
@@ -68,6 +69,7 @@ public class Main {
                     break;
                 case 8:
                     System.out.println("Option 8");
+                    booksManager.update(book);
                     break;
                 case 9:
                     System.out.println("Option 9");
@@ -75,6 +77,7 @@ public class Main {
                     break;
                 case 10:
                     System.out.println("Option 10");
+                    booksManager.delete(book);
                     break;
                 case 11:
                     System.out.println("Option 11");

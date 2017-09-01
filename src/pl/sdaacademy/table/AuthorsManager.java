@@ -19,9 +19,9 @@ public class AuthorsManager extends BaseManager<Author> {
 		executor.execute(new ActionAdapter() {
 			@Override
 			public void onExecute(Session session) {
-				System.out.println("before save : author id = "+object.getId());
+				//System.out.println("before save : author id = "+object.getId());
 				session.save(object);
-				System.out.println("after save : author id = "+object.getId());
+				//System.out.println("after save : author id = "+object.getId());
 			}
 		});
 	}
@@ -32,7 +32,7 @@ public class AuthorsManager extends BaseManager<Author> {
 			@Override
 			public void onExecute(Session session) {
 				//Author author = (Author )session.get(Author.class, object.getId());
-				Author author = (Author) session.get(Author.class, "2a3875ad-3583-4402-881b-b3e9c8075fa3");
+				Author author = (Author) session.get(Author.class, "4028b8815e3e31d8015e3e32620e0000");
 				author.setFirstName(object.getFirstName());
 				author.setLastName(object.getLastName());
 				author.setYearOfBirth(object.getYearOfBirth());
@@ -47,7 +47,7 @@ public class AuthorsManager extends BaseManager<Author> {
 			@Override
 			public void onExecute(Session session) {
 				//Author author = (Author )session.get(Author.class, object.getId());
-				Author author = (Author) session.get(Author.class, "2a3875ad-3583-4402-881b-b3e9c8075fa3");
+				Author author = (Author) session.get(Author.class, "4028b8815e3e31d8015e3e32620e0000");
 				session.delete(author);
 			}
 		});

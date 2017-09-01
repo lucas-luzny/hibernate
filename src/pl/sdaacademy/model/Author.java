@@ -7,14 +7,15 @@ import javax.persistence.*;
 
 @Entity
 @Table( name = "authors" )
+@AttributeOverrides({ @AttributeOverride(name = "id", column = @Column(name = "author_id"))})
 public class Author extends BaseModel {
 
     public static final String TABLE_NAME = "authors";
-    @Id
-    @GeneratedValue(generator="system-uuid")
-    @GenericGenerator(name="system-uuid", strategy = "uuid")
-    @Column(name = "author_id")
-    private String id;
+//    @Id
+//    @GeneratedValue(generator="system-uuid")
+//    @GenericGenerator(name="system-uuid", strategy = "uuid")
+//    @Column(name = "author_id")
+//    private String id;
     @Column(name = "first_name")
     private String firstName;
     @Column(name = "last_name")

@@ -6,13 +6,14 @@ import javax.persistence.*;
 
 @Entity
 @Table( name = "book" )
+@AttributeOverrides({ @AttributeOverride(name = "id", column = @Column(name = "book_id"))})
 public class Book extends BaseModel {
 
     public static final String TABLE_NAME = "Book";
-    @Id
-    @GeneratedValue(generator="system-uuid")
-    @GenericGenerator(name="system-uuid", strategy = "uuid")
-    @Column(name = "book_id")
+//    @Id
+//    @GeneratedValue(generator="system-uuid")
+//    @GenericGenerator(name="system-uuid", strategy = "uuid")
+//    @Column(name = "book_id")
     private String id;
     @Column(name = "book_name")
     private String name;
