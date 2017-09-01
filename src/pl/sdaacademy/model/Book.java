@@ -1,15 +1,36 @@
 package pl.sdaacademy.model;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
+
+@Entity
+@Table( name = "book" )
 public class Book extends BaseModel {
 
     public static final String TABLE_NAME = "Book";
-
+    @Id
+    @GeneratedValue(generator="system-uuid")
+    @GenericGenerator(name="system-uuid", strategy = "uuid")
+    @Column(name = "book_id")
     private String id;
+    @Column(name = "book_name")
     private String name;
+
+    @ManyToOne
+    @JoinColumn(name = "author_id")
     private Author author;
+    @Column(name = "book_type")
+    //@Enumerated(EnumType.STRING)
     private BookType bookType;
 
     public Book() {
+    }
+
+    public Book(String name, Author author, BookType bookType) {
+        this.name = name;
+        this.author = author;
+        this.bookType = bookType;
     }
 
     public String getId() {
@@ -36,6 +57,7 @@ public class Book extends BaseModel {
         this.author = authorId;
     }
 
+    @Enumerated(EnumType.STRING)
     public BookType getBookType() {
         return bookType;
     }

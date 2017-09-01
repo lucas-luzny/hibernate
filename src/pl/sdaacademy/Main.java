@@ -4,13 +4,12 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import pl.sdaacademy.api.DBExecutor;
 import pl.sdaacademy.api.Executor;
-import pl.sdaacademy.model.Author;
-import pl.sdaacademy.model.Author1;
-import pl.sdaacademy.model.Human;
+import pl.sdaacademy.model.*;
 import pl.sdaacademy.service.HibernateService;
 import pl.sdaacademy.service.PostgreSQLService;
 import pl.sdaacademy.table.Authors1Manager;
 import pl.sdaacademy.table.AuthorsManager;
+import pl.sdaacademy.table.BooksManager;
 
 import javax.security.auth.login.Configuration;
 import java.util.List;
@@ -24,6 +23,7 @@ public class Main {
         final Executor executor = new DBExecutor(service);
         final AuthorsManager authorsManager = new AuthorsManager(executor);
         final Authors1Manager authors1Manager = new Authors1Manager(executor);
+        final BooksManager booksManager = new BooksManager(executor);
 
         Author author = new Author("J.R.R", "Tolkien", 1892);
         Author authorUpdate = new Author("John Ronald Reuel", "Tolkien", 1892);
@@ -31,6 +31,7 @@ public class Main {
         Human human = new Human("Lukasz", "Luzny");
         Author1 author1 = new Author1(1993, human);
 
+        Book book = new Book("Hobbit", author, BookType.FANTASY);
 
         while (true) {
             menu.showMenu();
@@ -47,6 +48,7 @@ public class Main {
                     break;
                 case 3:
                     System.out.println("Option 3");
+                    booksManager.add(book);
                     break;
                 case 4:
                     System.out.println("Option 4");
