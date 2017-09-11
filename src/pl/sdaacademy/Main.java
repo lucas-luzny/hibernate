@@ -1,18 +1,13 @@
 package pl.sdaacademy;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import pl.sdaacademy.api.DBExecutor;
 import pl.sdaacademy.api.Executor;
 import pl.sdaacademy.model.*;
 import pl.sdaacademy.service.HibernateService;
 import pl.sdaacademy.service.PostgreSQLService;
-import pl.sdaacademy.table.Authors1Manager;
 import pl.sdaacademy.table.AuthorsManager;
 import pl.sdaacademy.table.BooksManager;
 
-import javax.security.auth.login.Configuration;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -22,14 +17,10 @@ public class Main {
         final String config = "hibernate.cfg.xml";
         final Executor executor = new DBExecutor(service);
         final AuthorsManager authorsManager = new AuthorsManager(executor);
-        final Authors1Manager authors1Manager = new Authors1Manager(executor);
         final BooksManager booksManager = new BooksManager(executor);
 
         Author author = new Author("J.R.R", "Tolkien", 1892);
         Author authorUpdate = new Author("John Ronald Reuel", "Tolkien", 1892);
-
-        Human human = new Human("Lukasz", "Luzny");
-        Author1 author1 = new Author1(1993, human);
 
         Book book = new Book("Hobbit", author, BookType.FANTASY);
 
@@ -83,14 +74,6 @@ public class Main {
                     System.out.println("Option 11");
                     authorsManager.delete(author);
                     break;
-                case 20:
-                    System.out.println("test");
-                    System.out.println(authorsManager.getSelectQuery());
-                    System.out.println(authorUpdate.getId());
-                    break;
-                case 21:
-                    System.out.println("test2");
-                    authors1Manager.add(author1);
                 default:
             }
         }

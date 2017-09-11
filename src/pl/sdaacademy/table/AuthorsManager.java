@@ -5,7 +5,6 @@ import pl.sdaacademy.api.ActionAdapter;
 import pl.sdaacademy.api.Executor;
 import pl.sdaacademy.model.Author;
 
-import java.util.Iterator;
 import java.util.List;
 
 public class AuthorsManager extends BaseManager<Author> {
@@ -19,9 +18,7 @@ public class AuthorsManager extends BaseManager<Author> {
 		executor.execute(new ActionAdapter() {
 			@Override
 			public void onExecute(Session session) {
-				//System.out.println("before save : author id = "+object.getId());
 				session.save(object);
-				//System.out.println("after save : author id = "+object.getId());
 			}
 		});
 	}

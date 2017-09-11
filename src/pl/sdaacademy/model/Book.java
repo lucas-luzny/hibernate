@@ -10,10 +10,7 @@ import javax.persistence.*;
 public class Book extends BaseModel {
 
     public static final String TABLE_NAME = "Book";
-//    @Id
-//    @GeneratedValue(generator="system-uuid")
-//    @GenericGenerator(name="system-uuid", strategy = "uuid")
-//    @Column(name = "book_id")
+
     private String id;
     @Column(name = "book_name")
     private String name;
@@ -22,7 +19,7 @@ public class Book extends BaseModel {
     @JoinColumn(name = "author_id")
     private Author author;
     @Column(name = "book_type")
-    //@Enumerated(EnumType.STRING)
+
     private BookType bookType;
 
     public Book() {
