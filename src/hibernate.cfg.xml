@@ -16,8 +16,6 @@
         <!--  -->
         <mapping class="pl.sdaacademy.model.Book"/>
         <mapping class="pl.sdaacademy.model.Author"/>
-        <mapping class="pl.sdaacademy.model.Author1"/>
-        <mapping class="pl.sdaacademy.model.Human"/>
 
     </session-factory>
 
